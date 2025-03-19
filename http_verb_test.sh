@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Tohid AB
+# tohid-ab
 # HTTP Verb Tampering Testing Script
 # Tests common HTTP methods against a target URL
 

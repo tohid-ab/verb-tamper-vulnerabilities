@@ -14,7 +14,6 @@ fi
 # Target URL from command line argument
 TARGET_URL="$1"
 
-# Array of HTTP methods to test
 HTTP_METHODS=("GET" "POST" "PUT" "DELETE" "PATCH" "HEAD" "OPTIONS" "TRACE" "CONNECT")
 
 # Colors for output
@@ -31,7 +30,6 @@ test_method() {
     local method=$1
     echo -e "\nTesting ${YELLOW}$method${NC} request..."
     
-    # Use curl to test the method
     response=$(curl -s -o /dev/null -w "%{http_code}" -X "$method" "$TARGET_URL" --max-time 5)
     
     case $response in
@@ -70,7 +68,6 @@ test_method() {
     fi
 }
 
-# Loop through each HTTP method and test
 for method in "${HTTP_METHODS[@]}"; do
     test_method "$method"
     sleep 1  # Add delay to prevent overwhelming the server
